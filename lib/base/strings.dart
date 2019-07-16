@@ -1,0 +1,37 @@
+class Strings {
+  static const APP_TITLE = '房产税';
+  static const APP_CHOOSE = '请选择';
+  static const HOME_BOTTOM_STR = '首页';
+  static const PROPERTY_BOTTOM_STR = '房产';
+  static const PERSONAL_BOTTOM_STR = '个人';
+  static const FEEDBACK_BOTTOM_STR = '反馈';
+  static const APPEAL_TITLE_STR = '申诉界面';
+  static const APPEAL_STR = '申诉';
+  static const APPEAL_REASON = '申诉原因';
+  static const APPEAL_TYPE = '申诉类型';
+  static const DECLARE_PROPERTY_WRITE_STR = '申报房产填写';
+  static const DECLARE_PROPERTY_STR = '申报房产';
+  static const SUOOLEMENT_PROPERTY_DETAILED = '补录房产详细';
+  static const PROPERTY_DETAILED = '房产详细';
+  static const FAMILY_PERSONNEL = '家庭成员';
+  static const MAKE_TIME = '预约时间';
+  static const HOUSING_VALUE_OBJECTION = '房值异议';
+  static const TAX_DEDUCTION_OBJECTION = '扣税异议';
+  static const APP_OTHER = '其它';
+  static const BOTTOM_SUBMIT = '提交';
+  static const SUPPLEMENTARY_NOTES = '补充说明';
+  static const SUPPLEMENTARY_NOTES_HINTS = '补充说明至少填写五个字符';
+  static const PROPERTY_TAX_COLLECTION = '房产税缴纳';
+  static const POLICY_ADVOCACY = '政策宣传';
+  static const PERSONAL_INFORMATION = '个人信息';
+  static const E_MAIL = '电子回函';
+  static const SAFETY_CENTER = '安全中心';
+  static const SETTING = '设置';
+  static const ABOUT = '关于';
+  static const SIGN_OUT = '退出';
+  static const LOGIN_REGISTRATION = '登录/注册';
+  static const IS_LOGIN_OUT_CONTENT = '是否退出登录';
+  static const LOGIN_OUT = '退出登录';
+  static const BTN_OK = '确定';
+  static const BTN_CANCEL = '取消';
+}
