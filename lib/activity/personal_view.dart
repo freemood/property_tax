@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:property_tax/activity/login_view.dart';
 import 'package:property_tax/base/dimens.dart';
 import 'package:property_tax/base/strings.dart';
+import 'package:property_tax/utils/event_bus.dart';
 import 'package:property_tax/view/combination_view.dart';
 import 'package:property_tax/view/text_view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PersonalView extends StatefulWidget {
   @override
@@ -10,6 +13,7 @@ class PersonalView extends StatefulWidget {
 }
 
 class _PersonalViewState extends State<PersonalView> {
+  String result = "loginOk";
   var personalName = "张三";
   bool isHide = false;
   List<String> strItems = <String>[
@@ -68,6 +72,27 @@ class _PersonalViewState extends State<PersonalView> {
         child: showPersonalView(),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    ///初始化
+    super.initState();
+    EventBus.getDefault().register((String result) {
+      if (null != result) {
+        _readShared("name");
+      }
+    });
+  }
+
+  Future _readShared(var atter) async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    String vaule = preferences.get(atter);
+    setState(() {
+      personalName = vaule;
+      isHide = true;
+    });
+    return vaule;
   }
 
   Widget showPersonalView() {
@@ -169,25 +194,38 @@ class _PersonalViewState extends State<PersonalView> {
   }
 
   Widget showUserIcon() {
-    return Container(
-      color: Colors.blue,
-      child: Row(
-        children: <Widget>[
-          Container(
-            padding: const EdgeInsets.only(top: 60, left: 32, bottom: 16),
-            child: Icon(
-              Icons.account_circle,
-              size: 64,
-              color: Colors.white70,
+    return GestureDetector(
+      child: Container(
+        color: Colors.blue,
+        child: Row(
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.only(top: 60, left: 32, bottom: 16),
+              child: Icon(
+                Icons.account_circle,
+                size: 64,
+                color: Colors.white70,
+              ),
             ),
-          ),
-          Container(
-            padding: const EdgeInsets.only(top: 50, left: 16),
-            child: TextView.getTextColorView(
-                personalName, Colors.white, Dimens.FONT_SIZE_16),
-          ),
-        ],
+            Container(
+              padding: const EdgeInsets.only(top: 50, left: 16),
+              child: TextView.getTextColorView(
+                  personalName, Colors.white, Dimens.FONT_SIZE_16),
+            ),
+          ],
+        ),
       ),
+      onTap: () {
+        if (!isHide) {
+          return;
+        }
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => LoginView(),
+          ),
+        );
+      },
     );
   }
 }

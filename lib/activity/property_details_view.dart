@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:property_tax/activity/appeal_view.dart';
 import 'package:property_tax/base/strings.dart';
-import 'package:property_tax/bean/property_bean.dart';
+import 'package:property_tax/entity/property_bean.dart';
 
 class PropertyDetailsView extends StatefulWidget {
   final PropertyBean propertyBean;

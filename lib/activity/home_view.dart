@@ -48,12 +48,12 @@ class HomeViewState extends State<HomeView> {
                   child: Swiper(
                     itemBuilder: _swiperBuilderOne,
                     itemCount: _itmes.length,
-                    pagination: new SwiperPagination(
+                    pagination: SwiperPagination(
                         builder: DotSwiperPaginationBuilder(
                       color: Colors.black54,
                       activeColor: Colors.white,
                     )),
-                    control: new SwiperControl(),
+                    control: SwiperControl(),
                     scrollDirection: Axis.horizontal,
                     autoplay: true,
                     onTap: (index) {
